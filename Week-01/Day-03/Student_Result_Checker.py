@@ -1,7 +1,6 @@
 # Student Result Checker
-
-name = input("Enter your name: ")
-score = int(input("Enter the score: "))
+name, score = input("Enter your name and score: ").split()
+score = int(score)
 grade = ""
 message = ""
 width = 30
@@ -37,3 +36,4 @@ print(f"Grade: {grade}")
 print()
 print(message)
 print(line)
+
