@@ -1,5 +1,5 @@
 # Student Result Checker
-name, score = input("Enter your name and score: ").split()
+name, surname, score = input("Enter your name and score: ").split()
 score = int(score)
 grade = ""
 message = ""
@@ -31,6 +31,7 @@ print(line)
 print(x)
 print(line)
 print(f"Name: {name}")
+print(f"Surname: {surname}")
 print(f"Score: {score}")
 print(f"Grade: {grade}")
 print()
