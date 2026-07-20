@@ -1,9 +1,3 @@
-
----
-
-# `README.md`
-
-````markdown
 # WEEK 2 - DAY 1: LISTS
 
 ## Topics Covered
