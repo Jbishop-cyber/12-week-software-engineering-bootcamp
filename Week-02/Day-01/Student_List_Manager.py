@@ -21,6 +21,19 @@ def students_names(num_students):
 
     return students_name
 
+def update_student(student_names):
+    index = int(input("What index do you want to change? "))
+
+    while index >= len(student_names):  
+        print("Invalid Index")
+        index = int(input("What student index do you want to change? "))
+    
+    new_student = input("Enter the new student name: ")
+    
+    student_names[index] = new_student
+        
+    return student_names
+
 def display_first_last(student_names):
 
     if student_names == []:
@@ -28,15 +41,16 @@ def display_first_last(student_names):
 
     first, *others, last = student_names
     return first, last
-
-def update_student(student_names):
-    pass
-
+    
 num_students = get_number_of_students()
 
 student_names = students_names(num_students)
 
-print(student_names)
+student_names = update_student(student_names)
 
-print(display_first_last(student_names))
+first, last = display_first_last(student_names)
+
+print(f"The total number of students is: {len(student_names)}")
+print(student_names)
+print(f"The first and last names are: {first} and {last}")
 
