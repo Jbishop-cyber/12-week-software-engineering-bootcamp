@@ -49,18 +49,6 @@ This project combines all the Python concepts learned during Week 1.
 * Basic List Usage
 * Built-in Functions (`sum()`, `max()`, `min()`, `len()`)
 
----
-
-## 📂 Project Structure
-
-```text
-Project/
-├── README.md
-├── Notes.md
-└── Student_Grade_Report_System.py
-```
-
----
 
 ## ▶️ Sample Output
 
