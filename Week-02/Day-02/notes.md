@@ -131,23 +131,365 @@ This helps reject blank input such as:
 "     "
 ```
 
-## Mini Project
+## List Methods
 
-Student Search System
+List methods are built-in functions that belong to Python lists. They allow us to add, remove, search, sort, and modify items in a list.
 
-Features:
+Methods are called using **dot notation**:
 
-* Store student names
-* Display all students
-* Display first and last student
-* Search for a student
-* Display the student's index
-* Search repeatedly until the user exits
+```python
+students.append("Justice")
+```
+
+where:
+
+* `students` is the list.
+* `append()` is the method.
+
+---
+
+## 1. `append()`
+
+Adds an item to the **end** of a list.
+
+### Syntax
+
+```python
+list.append(item)
+```
+
+### Example
+
+```python
+students = ["Ada", "John"]
+
+students.append("Justice")
+
+print(students)
+```
+
+Output:
+
+```python
+['Ada', 'John', 'Justice']
+```
+
+### Use Case
+
+* Adding new records.
+* Collecting user input.
+* Building a list inside a loop.
+
+---
+
+## 2. `insert()`
+
+Adds an item at a specific index.
+
+### Syntax
+
+```python
+list.insert(index, item)
+```
+
+### Example
+
+```python
+students = ["Ada", "John"]
+
+students.insert(1, "Justice")
+```
+
+Output
+
+```python
+['Ada', 'Justice', 'John']
+```
+
+### Use Case
+
+When the position of the new item matters.
+
+---
+
+## 3. `remove()`
+
+Removes the **first occurrence** of a value.
+
+### Syntax
+
+```python
+list.remove(value)
+```
+
+Example
+
+```python
+numbers = [2, 4, 6, 4]
+
+numbers.remove(4)
+```
+
+Output
+
+```python
+[2, 6, 4]
+```
+
+Notice only the first `4` was removed.
+
+### Beginner Mistake
+
+If the value doesn't exist,
+
+```python
+numbers.remove(10)
+```
+
+Python raises a `ValueError`.
+
+---
+
+#$ 4. `pop()`
+
+Removes an item by its index.
+
+### Syntax
+
+```python
+list.pop(index)
+```
+
+Example
+
+```python
+students = ["Ada", "John", "Justice"]
+
+removed = students.pop(1)
+```
+
+Output
+
+```python
+removed = "John"
+
+students = ["Ada", "Justice"]
+```
+
+### Important
+
+Unlike `remove()`, `pop()` returns the removed item.
+
+---
+
+## 5. `index()`
+
+Returns the index of the **first occurrence** of a value.
+
+### Syntax
+
+```python
+list.index(value)
+```
+
+Example
+
+```python
+students = ["Ada", "John", "Justice"]
+
+print(students.index("John"))
+```
+
+Output
+
+```python
+1
+```
+
+### Important
+
+If the value doesn't exist,
+
+```python
+students.index("Grace")
+```
+
+raises a `ValueError`.
+
+---
+
+## 6. `count()`
+
+Counts how many times a value appears.
+
+### Syntax
+
+```python
+list.count(value)
+```
+
+Example
+
+```python
+numbers = [2, 5, 2, 8, 2]
+
+print(numbers.count(2))
+```
+
+Output
+
+```python
+3
+```
+
+### Use Case
+
+Finding duplicates.
+
+---
+
+## 7. `sort()`
+
+Sorts the original list.
+
+### Syntax
+
+```python
+list.sort()
+```
+
+Example
+
+```python
+numbers = [8, 2, 5, 1]
+
+numbers.sort()
+```
+
+Output
+
+```python
+[1, 2, 5, 8]
+```
+
+Descending order
+
+```python
+numbers.sort(reverse=True)
+```
+
+Output
+
+```python
+[8, 5, 2, 1]
+```
+
+---
+
+## 8. `reverse()`
+
+Reverses the current order.
+
+### Syntax
+
+```python
+list.reverse()
+```
+
+Example
+
+```python
+numbers = [1, 2, 3]
+
+numbers.reverse()
+```
+
+Output
+
+```python
+[3, 2, 1]
+```
+
+### Difference from `sort(reverse=True)`
+
+```python
+numbers.reverse()
+```
+
+simply flips the list.
+
+```python
+numbers.sort(reverse=True)
+```
+
+sorts the list from largest to smallest.
+
+---
+
+## 9. `clear()`
+
+Removes every item from the list.
+
+### Syntax
+
+```python
+list.clear()
+```
+
+Example
+
+```python
+students = ["Ada", "John"]
+
+students.clear()
+```
+
+Output
+
+```python
+[]
+```
+
+The list still exists, but it contains no items.
+
+---
+
+## Summary Table
+
+| Method      | Purpose                               |
+| ----------- | ------------------------------------- |
+| `append()`  | Add item to the end                   |
+| `insert()`  | Add item at a specific index          |
+| `remove()`  | Remove the first matching value       |
+| `pop()`     | Remove an item by index and return it |
+| `index()`   | Find the index of a value             |
+| `count()`   | Count occurrences of a value          |
+| `sort()`    | Sort the list                         |
+| `reverse()` | Reverse the current order             |
+| `clear()`   | Remove all items                      |
+
+---
+
+## Things to Remember
+
+* Methods belong to objects and are called using dot notation.
+* `append()` always adds to the end.
+* `insert()` adds at a chosen position.
+* `remove()` removes by value.
+* `pop()` removes by index.
+* `index()` finds the first occurrence.
+* `count()` counts occurrences.
+* `sort()` changes the order permanently.
+* `reverse()` flips the list without sorting it.
+* `clear()` empties the list.
+
+---
 
 ## Key Concepts Learned
 
 * Lists
 * Searching
+* List methods 
 * Indexes
 * Flag variables
 * break
