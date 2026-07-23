@@ -1000,125 +1000,6 @@ This is the method you'll use most often in loops.
 
 ---
 
-🎉 Spot on! You got it exactly right.
-
-Let's trace it together.
-
-```python
-student = {
-    "name": "Justice",
-    "score": 90
-}
-```
-
-The dictionary contains:
-
-```text
-name  → Justice
-score → 90
-```
-
----
-
-### Step 1
-
-```python
-key, value = student.popitem()
-```
-
-`popitem()` removes the **last inserted** key-value pair.
-
-The last one inserted was:
-
-```text
-"score": 90
-```
-
-So it returns the tuple:
-
-```python
-("score", 90)
-```
-
-which is unpacked into:
-
-```python
-key = "score"
-value = 90
-```
-
----
-
-### Step 2
-
-```python
-print(key)
-```
-
-Output:
-
-```text
-score
-```
-
----
-
-### Step 3
-
-```python
-print(value)
-```
-
-Output:
-
-```text
-90
-```
-
----
-
-### Step 4
-
-The dictionary is now:
-
-```python
-{
-    "name": "Justice"
-}
-```
-
-So:
-
-```python
-print(student)
-```
-
-prints:
-
-```python
-{'name': 'Justice'}
-```
-
----
-
-## 🌟 Something you've probably noticed...
-
-You're getting much faster at predicting program output.
-
-A few weeks ago, you were mainly asking:
-
-> "Why isn't this working?"
-
-Now you're answering questions like:
-
-* What gets removed?
-* What gets returned?
-* What does the dictionary look like afterward?
-
-That's a sign you're mentally executing the code before running it—a valuable programming skill.
-
----
-
 ## One More Dictionary Method
 
 ## `get()`
@@ -1175,6 +1056,54 @@ Not Available
 This is very useful when you're not sure whether a key exists.
 
 ---
+
+## Difference between `[]` and `()`
+
+## Square brackets `[ ]` — direct key access
+
+```python
+student["score"] = 95        # assignment
+print(student["score"])      # retrieval
+```
+
+This is Python's built-in syntax for indexing — the same square-bracket syntax you already used with lists (`list[0]`). For dictionaries, it means "go directly to this key." It works for **both reading and writing**:
+
+- On the left of `=` → it **sets** the value at that key (creates it if it doesn't exist, or overwrites if it does)
+
+- On the right of `=` (or inside `print()`) → it **reads** the value at that key
+
+But there's a catch: if the key *doesn't exist* and you try to **read** it this way, Python raises a `KeyError` and crashes:
+
+```python
+print(student["gpa"])   # KeyError: 'gpa' (if "gpa" was never set)
+```
+
+## Round brackets `( )` — calling a method
+
+```python
+student.get("score")
+```
+
+This isn't indexing at all — `.get(...)` is a **method** (a function that belongs to the dictionary object). Round brackets `()` are what Python always uses to **call a function or method** and pass it arguments — same as `print(...)` or `len(...)`.
+
+`.get()` is a *safer* way to read a value because it won't crash if the key is missing — it just returns `None` (or a default you specify) instead:
+
+```python
+print(student.get("gpa"))          # None (no crash)
+print(student.get("gpa", 0.0))     # 0.0 (your custom default)
+```
+
+## Why there's no `.get()` for assignment
+
+`.get()` only exists for **reading** safely. There's no equivalent "safe assignment" method because assignment with `[ ]` never crashes — if the key doesn't exist yet, Python just creates it. So assignment only ever needs the one form: `student["score"] = 95`.
+
+## Simple rule of thumb
+
+| Bracket | What it means | Can it crash? |
+|---|---|---|
+| `dict["key"]` | direct access (read or write) | Yes, if reading a missing key |
+| `dict.get("key")` | calling the `.get` method (read only) | No — returns `None` or default |
+
 
 ## Summary of the main dictionary methods
 
