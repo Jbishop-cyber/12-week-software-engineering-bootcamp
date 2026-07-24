@@ -1,6 +1,11 @@
 def add_student(students):
     prompt = "How many students do you want to add? "
     num_students = int(input(prompt))
+
+    while num_students <= 0:
+        print("Enter a valid Number")
+        prompt = "How many students do you want to add? "
+        num_students = int(input(prompt))
     
     for n in range(num_students):
         prompt = "Enter the student details i.e. (ID, name, surname, score, course): "
